@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>我的订单</title>
+</head>
+<link href="style/bootstrap.min.css" rel="stylesheet">
+<link href="style/reset.css" rel="stylesheet">
+<link href="style/style.css" rel="stylesheet">
+<link href="style/settlement.css" rel="stylesheet">
+
+<body>
+	<div class="classify-header">
+  <!-- 以下是可替换的内容 -->
+    <div class="classify-header-container">
+      <!-- 这个是首页的图片和logo图片 -->
+      <div class="classify-header-logo">
+        <img src="images/logo.png" alt="">
+        <h5><a href="index.html">首页</a></h5>
+        <h4>我的订单</h4>
+        <div class="classify-logo"><a href="register.html">登录</a></div>
+      </div>
+    </div>
+    <div class="classify-logoin" id="classify-logoin">
+      <a href="cart.html"><img src="images/24768.png" ></a>
+      <img class="classify-humman" src="images/22942.png">
+      
+    </div>
+
+  </div>
+  <div class="classify-cart">
+      <h1 > <a href="cart.html">购物车</a></h1>
+      <h1 ><a href="settlement.html">订单</a></h1>
+      <h1 class="outter">退出</h1>
+   </div>
+   <div class="black"></div>
+   <!-- 结算物品 -->
+   <div class="settlement">
+     
+   </div>
+   <!-- 备注 -->
+   <div class="remarks">
+      <span>备注:</span>
+     <textarea name="" id="" cols="30" rows="10">
+       
+     </textarea>
+   </div>
+	<!-- 地址 -->
+	<div class="myaddress">
+	<b>我的地址</b>
+	
+	</div>
+	<div class="address-my"></div>
+
+<!-- 结算 -->
+<div id="cart" class="cart" style="z-index:999;">
+ 
+   
+    <div id="price_all_text">
+        <p id="price_all_sum">合计:¥<span id="payMoneyTxts">0.00</span></p>
+        <p id="price_save_sum">已节省:¥<span id="payMoneyTxt">0.00</span></p>
+    </div>
+    <div id="btn_submit" onclick="acc();">
+        结算
+    </div>
+</div>
+   <!-- footer -->
+<div class="foot"></div>
+		<footer>
+			<ul>
+				<li><a href="index.html"><img  src="images/index2.png" alt=""></a></li>
+				<li><a href="classify.html"><img src="images/ffl.png" alt=""></a></li>
+				<li ><a href="cart.html"><img src="images/fgwc.png" alt=""></a></li>
+				<li><img  style='opacity: 1; width: 29%;' src="images/22942my.png" alt=""></li>
+			</ul>
+		</footer>
+</body>
+  	<script src = "js/jquery.js"></script>
+    <script src = "js/style.js"></script>
+    <script src = "js/settlement.js"></script>
+
+</html>

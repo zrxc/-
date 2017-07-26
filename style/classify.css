@@ -1,0 +1,63 @@
+html{
+  font-size: 20px;
+}
+body{
+  width: 100%
+}
+
+
+
+.classify-doors{
+  /*background-color: red;*/
+  padding-top: 3.4rem;
+  height: 30rem;
+}
+@media (max-width:640px) {
+  .classify-goods-ul li{
+    display: block;
+    height: 5.3rem;
+    width: 40%;
+    float: left;
+    margin-left: 16px;
+    margin-right: 15px;
+    margin-top: .5rem;
+    border-radius: .5rem;
+  }
+
+}
+@media (max-width:400px) {
+  .classify-goods-ul li{
+    display: block;
+    height: 5.3rem;
+    width: 45%;
+    float: left;
+    margin-right: .2rem;
+    margin-left: .2rem;
+    margin-top: .5rem;
+    border-radius: .5rem
+
+  }
+}
+
+
+.classify-goods-ul a {
+  display: block;
+  height: 5.3rem;
+  width: 8.65rem;
+}
+.classify-goods-ul p {
+  position:relative;
+  top:-3.2rem;
+  left:3.2rem;
+}
+.classify-goods-ul img{
+  height: 100%;
+  width: 104%;
+}
+.classify-goods-ul{
+  margin: 0 auto;
+  width: 98%;
+  height: 25rem;
+  /*background: red;*/
+}
+/*以下是关于登录的后的显示*/

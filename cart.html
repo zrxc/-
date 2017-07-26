@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/cart.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/common.css">
+</head>
+<body>
+<!-- 以上是头部的样式  ,可替换的公共样式-->
+<header>
+    <div class="logo" style="float: left">
+        <a href="index.html"><img src="images/logo.png" alt="" style="float: left;margin-left: .3rem;margin-top:1rem;width: 2rem;height: 2.2rem"></a>
+        <a href="index.html"><h4 style="color: white ;float: left;margin-top:2.1rem;margin-left: 0.6rem">首页</h4></a>
+    </div>
+    <div>
+        <div style="float: right" id="user">
+            <img src="images/tou2.png" alt="" style="width: 2.2rem;height:2.2rem;margin-right: 1rem;margin-top: 1.4rem">
+        </div>
+        <div style="float: right;margin-right: 1rem">
+            <div><img src="images/guc.png" alt="" style="width: 2.2rem;height: 2.2rem;margin-top: 1.4rem"></div>
+            <div style="position: absolute;top: 18px;right: 60px;width: 1rem;height: 1rem;border-radius: 50%;
+            background-color:#60aad8;color: white;text-align: center;font-size: 14px" id="shuZi">0</div>
+        </div>
+    </div>
+</header>
+<div style="position:absolute;width: 100%;height: 9.375rem;border-bottom: 1px solid black;background-color:white;
+display: none; z-index: 999;" id="list">
+    <ul style="width: 100%;height: 100%;text-align: center;font-weight: 800">
+        <li style="height: 33.3333%;border-bottom: 1px solid pink;line-height: 300%"><h2><a href="cart.html">购物车</a></h2></li>
+        <li style="height: 33.3333%;line-height: 300%"><h2><a href="settlement.html">订单</a></h2></li>
+        <li style="height: 33.3333%;line-height: 300%"><h2 class="outter">退出</h2></li>
+    </ul>
+</div>
+<div style="height: 0.6rem;background-color:#d8d8d8"></div>
+<div style="width: 100%;height: 11rem;text-align: center" class="cart-content" id="empty">
+    <img src="images/kong.png" alt="" style="width: 8rem;height: 6rem;margin-top: 1rem">
+    <p style="color: #ababab;font-size: 1rem">您的购物车还是空的</p>
+</div>
+<div id="cart" class="cart" style="z-index:999;">
+    <div id="check_all"  style="position: relative">
+        <a href="cart.html"><img src="images/nocheck.png" style="width:1.2rem;height:1.2rem;position: absolute;display: none" id="nocheck" onclick="allse()"></a>
+        <img src="images/check.png" style="width:1.2rem;height:1.2rem;position: absolute" id="allseicon" onclick="allse()" />
+    </div>
+    <div id="check_all_text">
+        全部取消
+    </div>
+    <div id="price_all_text">
+        <p id="price_all_sum">合计:¥<span id="payMoneyTxt">0.00</span></p>
+        <p id="price_save_sum">已节省:¥0.00</p>
+    </div>
+    <div id="btn_submit" onclick="acc();">
+        <a href="settlement.html" style='color:#fff'>结算</a>
+    </div>
+</div>
+<div class="yourCart" style="width: 100%;"></div>
+<!-- <footer>
+    <ul>
+        <li><a href="index.html"><img src="images/index2.png" alt="" style="opacity: 0.5;"></a></li>
+        <li><a href="classify.html"><img src="images/ffl.png" alt="" style="opacity: 0.5;"></a></li>
+        <li ><a href="#"><img src="images/gwc.png" alt=""></a></li>
+        <li style="height: 100%;">
+            <a href="order.html">
+                  <img src="images/dd.png" alt="" style="width:60%;height: 80%;opacity: 0.5">
+            </a>
+        </li>
+    </ul>
+</footer> -->
+    <footer style="height:4.5rem;">
+        <ul>
+            <li><a href="index.html"><img src="images/index2.png" alt=""></a></li>
+            <li><a href="classify.html"><img src="images/ffl.png" alt=""></a></li>
+            <li ><a href="cart.html"><img  style="opacity: 1;" src="images/fgwc.png" alt=""></a></li>
+            <li><a href="order.html"><img style="width: 29%" src="images/22942my.png" alt=""></a></li>
+        </ul>
+    </footer>
+<div style="width: 100%;height: 10.5rem;position: relative;bottom: 0;left: 0;"></div>
+<script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/cart.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/common.js" charset="utf-8"></script>
+
+
+<script>
+    $("#user").click(function () {
+        $("#list").toggle();
+    });
+    function allse(){
+        $('.check_btn').toggle();
+        $('.nocheck_btn').toggle();
+        $('#nocheck').toggle();
+        $('#allseicon').toggle();
+
+//        $("#check_all_text").style.text("全部选中");
+    }
+//    $('.check_btn').click(function () {
+//        console.log(1111);
+//        $('.check_btn').toggle()
+//    })
+
+
+</script>
+
+</body>
+
+</html>

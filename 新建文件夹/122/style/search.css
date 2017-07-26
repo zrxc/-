@@ -1,0 +1,33 @@
+
+ .container{
+  	width: 100%;
+  }
+ .container>div{
+	margin-top: 1rem;
+	margin-left: 1rem;
+ 	float: left;
+ 	width: 45%;
+ 	height: 18rem;
+	background: #ccc;
+}
+.container>div>a>img{
+	width: 100%;
+}
+ .container>div>a>p{
+ 	margin: 0 auto;
+   text-overflow: -o-ellipsis-lastline;  
+      overflow: hidden;  
+      text-overflow: ellipsis;  
+      display: -webkit-box;  
+      -webkit-line-clamp: 2;  
+      -webkit-box-orient: vertical; 
+      font-size: 1.5rem;
+ }
+ .container>div>a>span{
+ 	margin:1rem auto;
+ 	font-size: 2rem; 
+ 	color: black;
+ }
+ .container h1{
+  margin: 5rem 4rem;
+ }

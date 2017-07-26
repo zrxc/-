@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Document</title>
+</head>
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link href="style/reset.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
+    <link href="style/search.css" rel="stylesheet">
+
+
+<body>
+<!-- 搜索 -->
+	<div class="search" style="top:0">
+		<input  id="search-text" type="text" value="" onfocus="this.value=''" onblur="if(this.value==''){this.value='请输入文字'}"/>
+		<span class="search-btn"  id="search-btn"></span>
+	</div>
+<!-- search-goods  搜索物品-->
+		<div id="container" class="container"> </div>
+<!-- 底部 -->
+	<footer>
+		<ul>
+			<li><a href=""><img style="opacity: 1;" src="images/index2.png" alt=""></a></li>
+			<li><a href=""><img src="images/ffl.png" alt=""></a></li>
+			<li ><a href=""><img src="images/fgwc.png" alt=""></a></li>
+			<li><a href="register.html"><img src="images/fdl.png" alt=""></a></li>
+		</ul>
+	</footer>
+	<div class="blank"></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src='js/style.js'></script>
+<script type="text/javascript">
+var searchText = $.getQueryString('search_text');
+console.log(searchText);
+var oSearchText = document.getElementById('search-text');
+oSearchText.value = searchText;
+ 
+
+searchGoods();
+function searchGoods() {
+	$.ajax({
+	    "url": 'http://lc.shudong.wang/api_goods.php?search_text=' + searchText,
+	    'type': 'GET',
+	    'dataType': 'json',
+	    'data':{
+		    "pagesize":100,
+		  },
+	    'success': function(response) {
+	    	var container =  document.getElementById('container')
+	    	if(response.data.length === 0) {
+			var oH1 = document.createElement('h1');
+			oH1.innerText = '当前分类下面没有商品';
+			container.appendChild(oH1);
+			return;
+			}
+	      console.log(response);
+	      var html = "";
+	      for (var i = 0; i < response.data.length; i++) {
+	        var obj = response.data[i];
+	        html += '<div><a href="detail.html?goods_id='
+	          + obj.goods_id
+	          + '"><img src="'
+	          + obj.goods_thumb
+	          + '" /><p>'
+	          + obj.goods_name
+	          + '</p><span>¥：'
+	          + obj.price
+	          + '</span></a></div>';
+	      }
+
+	      container.innerHTML = html;
+	    }
+	});
+}
+
+</script>
+</html>

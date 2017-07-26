@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="style/reset.css">
+</head>
+<body>
+<section>
+    <div class="content">
+        <ul>
+            <li style="padding-bottom: 16.625rem">
+                <img src="images/logo.png" alt="">
+                <p >iliangcang</p>
+            </li>
+            <li>
+                <span></span>
+                <input type="text" placeholder="用户名/手机号/邮箱" name='username' >
+                <b>用户名不存在</b>
+            </li>
+            <li style="margin-top: 10px;">
+                <span></span>
+                <input type="password" placeholder="密码" name='password'>
+                <i>用户名或密码有误</i>
+            </li>
+            <li style="padding-top: 50px">
+                <input type="checkbox" checked >
+                <span>自动登录</span>
+            </li>
+            <li style="padding-top: 50px">
+                <input id="login" type="button" value="登录良仓" style="width: 100% ;
+                height: 8rem;background-color: #25292e;border-radius: 20px;font-size: 3rem;color: white">
+            </li>
+            <li style="padding-top: 50px">
+                <a href=""><img src="images/qq-icon40_36.png" alt=""></a>
+                <a href=""><img src="images/sina-icon40_36.png" alt=""></a>
+                <a href=""><img src="images/douban-icon40_36.png" alt=""></a>
+                <a href="login.html">注册良仓</a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+<script>
+    $('input:eq(0)').focus(function(){
+        $('b').hide();
+    });
+    $('input:eq(1)').focus(function(){
+        $('i').hide();
+    });
+    $(function () {
+        $('input:eq(0)').blur(function () {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+
+
+            $.ajax({
+                "url": ' http://h6.duchengjiu.top/shop/api_user.php',
+                "type": 'POST',
+                "dataType": 'JSON',
+                'code':'int',
+                "data":{
+                    'status':'check',
+                    'username':username,
+                    'password':password
+                },
+                "success": function(response) {
+                    console.log(response);
+//                    console.log('失去焦点');
+                    if(response.code != 2001 ) {
+                        $('b').show();
+                        return;
+                    }else{
+                        $('b').hide();
+                    }
+                }
+
+            });
+
+        });
+        $('#login').click(function() {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            $.ajax({
+                "url": 'http://h6.duchengjiu.top/shop/api_user.php',
+                "type": 'POST',
+                "data": {
+                    'status':'login',
+                    'username': username,
+                    'password': password
+                },
+                "dataType": 'json',
+                "success": function(response) {
+                    console.log(response);
+                    //检测密码是否正确
+                    if(response.code == 0) {
+                        var data = response.data;
+                        $('i').hide();
+                        //把数据存储在页面
+                        for(var prop in data) {
+                            if(data.hasOwnProperty(prop)) {
+                                sessionStorage.setItem(prop,data[prop]);
+                            }
+                        }
+                        var callbackurl = location.hash.substr(13);
+                        console.log(callbackurl);
+                        if(callbackurl){
+                            location.assign(callbackurl)
+                        }else {
+                            location.assign('index.html');
+                        }
+                    }else{
+                        $('i').show();
+                    }
+                }
+            });
+        });
+    })
+</script>
+</html>

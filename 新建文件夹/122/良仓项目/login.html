@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/login.css">
+
+</head>
+<body>
+<header>
+    <div>
+        <a href="">
+            <img src="images/logo.png" alt="">
+            <span>首页</span>
+        </a>
+    </div>
+</header>
+<section>
+    <div class="mobile">
+        <input id="mobile" name="name" value="" placeholder="输入用户名" type="tel">
+        <span id="scode">获取验证码</span>
+    </div>
+    <div style="height: 34px"></div>
+    <div class="code">
+        <input type="text" name="password" placeholder="输入密码">
+    </div>
+    <div style="height: 34px"></div>
+    <div class="isauto">
+        <input type="checkbox" checked>
+        <span>自动登录</span>
+    </div>
+    <div style="height: 64px"></div>
+    <input class="submit" type="submit"  value="注 册" />
+    <div style="height: 64px"></div>
+    <div style="text-align: center;" class="moreLogin">
+        <a href="register.html">用已有账号登录 ></a>
+    </div>
+</section>
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+<script>
+//    var scode = document.querySelector("#scode");
+//    var mobile = document.querySelector("#mobile");
+//    scode.addEventListener('touchstart',function () {
+//        var tell = mobile.value;
+//    })
+     var username = $('input[name = "username"]').val();
+     var password = $('input[name = "password"]').val();
+    $(function(){
+        $.ajax({
+            "url": ' http://h6.duchengjiu.top/shop/api_user.php',
+            "type": 'POST',
+            "dataType": 'JSON',
+            'code':'int',
+            "data":{
+                'status':'check',
+                'username':username,
+                'password':password
+            },
+            "success":function (response) {
+                console.log(response);
+                if(response.code === 2001 ){
+                    alert('用户名已注册，请直接登录或更换用户名')
+                }
+            }
+        })
+    })
+</script>
+</html>

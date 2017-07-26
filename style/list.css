@@ -1,0 +1,65 @@
+html{
+  font-size: 20px;
+}
+body{
+  width: 100%
+}
+
+.list-item-ul {
+  width: 95%;
+  height: 76rem;
+  /*background: red;*/
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+.list-item-ul li{
+  width: 45%;
+  height: 13.35rem;
+  border: 1px solid rgb(87, 87, 87);
+  float: left;
+  margin-left: .5rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  position: relative;
+  font-size: .5rem;
+
+}
+.list-item-ul li a{
+  color: rgb(57, 57, 57);
+  text-decoration: none;
+}
+.list-item-img{
+  width: 177px;
+  height: 155px;
+}
+.list-item-ul p{
+  font-size: .7rem;
+}
+.list-item-ul span{
+  position: absolute;
+  bottom: .2rem;
+  color: #3193f3;
+
+}
+
+#list-item>h1{
+  padding-top:90px;
+}
+.list-item-ul .aixin{
+  position: absolute;
+  bottom: .2rem;
+  right: .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
